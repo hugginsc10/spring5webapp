@@ -29,6 +29,10 @@ public class Book {
         // this.authors = authors;
     }
 
+    public Book() {
+
+    }
+
 
     public Long getId() {
         return this.id;

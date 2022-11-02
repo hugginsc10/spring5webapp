@@ -10,7 +10,6 @@ import guru.springgramework.spring5webapp.repositories.BookRepository;
 
 @Component
 public class BootStrapData implements CommandLineRunner {
-
     private final AuthorRepository authorRepository;
     private final BookRepository bookRepository;
 
@@ -19,6 +18,7 @@ public class BootStrapData implements CommandLineRunner {
         this.authorRepository = authorRepository;
         this.bookRepository = bookRepository;
     }
+
 
 
     @Override
@@ -36,10 +36,12 @@ public class BootStrapData implements CommandLineRunner {
        rod.getBooks().add(noEJB);
        noEJB.getAuthors().add(rod);
 
+       authorRepository.save(rod);
+       bookRepository.save(noEJB);
+
        System.out.println("Started in Bootstrap");
        System.out.println("Number of Books: " + bookRepository.count());
     }
-    
 }
     
 
